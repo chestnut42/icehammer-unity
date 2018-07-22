@@ -1,0 +1,30 @@
+# Mac Specific
+.DS_Store
+**/*.o
+**/*.xcworkspace
+**/xcuserdata
+**/obj
+**/*.deb
+
+# Unity Specific
+[Ee]xported[Oo]bj/
+.vs/
+*.userprefs
+*.userprefs.meta
+*.csproj
+*.pidb
+*.pidb.meta
+*.unityproj
+*.sln
+*.sln.meta
+*.suo
+*.tmp
+*.user
+*.booproj
+*.svd
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+sysinfo.txt
