@@ -8,7 +8,7 @@ Unity3D plugin for IceHammer
 
 ## Overview
 
-Each entity in IceHammer has an ID. It's a random 24 bytes encoded with URL save Base64. Example: **G_271bd-mg1ZPrna0XxAS0aT56BxS0tA**.
+Each entity in IceHammer has an ID. It's a random 24 byte array encoded with URL save Base64. Example: **G_271bd-mg1ZPrna0XxAS0aT56BxS0tA**.
 
 The starting point is a **Project**. Each project has an ID. This ID can be found in project URL: the part of the link between **...project/** and the next slash **/...**  (ex: https://app.icehammer.org/project/ **G_271bd-mg1ZPrna0XxAS0aT56BxS0tA** /...). This ID is to be manually copied into a project and to be commited to CVS.
 
