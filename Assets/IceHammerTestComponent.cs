@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 
 public class IceHammerTestComponent : MonoBehaviour {
 
-	public static readonly string projectID = "kCeAKCduEOmlBgQgis23otP6VsT3Tvq9";
+	public static readonly string projectID = "G_271bd-mg1ZPrna0XxAS0aT56BxS0tA";
 
 
 	void Start() {
