@@ -2,6 +2,7 @@
 Unity3D plugin for IceHammer
 
 [API docs](https://documenter.getpostman.com/view/4221390/RWMFrnaV)
+
 [Google Spread Sheet for test project](https://docs.google.com/spreadsheets/d/1vj9ZiUeByetKBnyMHDKv9J4pYcwDPTyAz5hRZHB_y5Y)
 
 
@@ -9,7 +10,7 @@ Unity3D plugin for IceHammer
 
 Each entity in IceHammer has an ID. It's a random 24 bytes encoded with URL save Base64. Example: **G_271bd-mg1ZPrna0XxAS0aT56BxS0tA**.
 
-The starting point is a **Project**. Each project has an ID. This ID can be found in project URL: the part of the link between **...project/** and the next slash **/...**  (ex: https://app.icehammer.org/project/**G_271bd-mg1ZPrna0XxAS0aT56BxS0tA**/...). This ID is to be manually copied into a project and to be commited to CVS.
+The starting point is a **Project**. Each project has an ID. This ID can be found in project URL: the part of the link between **...project/** and the next slash **/...**  (ex: https://app.icehammer.org/project/ **G_271bd-mg1ZPrna0XxAS0aT56BxS0tA** /...). This ID is to be manually copied into a project and to be commited to CVS.
 
 A **Project** consists of several tables called **Data Sheet**. Each **Data Sheet** is connected to a Google Spread Sheet. In order to be able to read the data from Google Data Sheet it requires:
   1. header row number (as it appears in Google Spread Sheet starting with 1)
