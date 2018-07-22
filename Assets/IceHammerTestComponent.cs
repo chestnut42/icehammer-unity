@@ -23,29 +23,28 @@ public class IceHammerTestComponent : MonoBehaviour {
 
         if(www.isNetworkError || www.isHttpError) {
             Debug.Log(www.error);
-        }
-        else {
+        } else {
         	Project project = ResponseParser.ParseProject(www);
             sheets = project.sheets;
 
-            Debug.Log(project.id);
-            Debug.Log(project.name);
-            Debug.Log(project.sheets);
+            Debug.Log(project);
 
-            yield return GetSheets(project);
+            foreach (string sheetID in project.sheets) {
+                yield return GetSheets(sheetID);
+            }
         }
     }
 
-    IEnumerator GetSheets(Project project) {
-        UnityWebRequest www = RequestBuilder.GetSheet(project.sheets[0]);
+    IEnumerator GetSheets(string sheetID) {
+        UnityWebRequest www = RequestBuilder.GetSheet(sheetID);
         yield return www.SendWebRequest();
 
         if(www.isNetworkError || www.isHttpError) {
             Debug.Log(www.error);
-        }
-        else {
+        } else {
             Sheet sheet = ResponseParser.ParseSheet(www);
-            Debug.Log("sheet: " + sheet.name + ", " + sheet.id + ", " + sheet.latestSchema);
+
+            Debug.Log("Sheet: " + sheet);
         }
     }
 	
