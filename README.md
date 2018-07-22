@@ -18,4 +18,4 @@ A **Project** consists of several tables called **Data Sheet**. Each **Data Shee
 Having a project ID one can always fetch current list of **Data Sheets** via API.
 
 Each **Data Scheet** has serveral **Schemas**. One can always fetch the latest Schema for a Data Sheet via API. The Schema is a list of columns and their types. The idea behind a Schema is to contain all necessary information about Data Sheet which is required to generate data loading code. After this is done one can always fetch the new data for the given schema via API. An one can do it **perfectly safe even after game release**. That is where all server-side validation is done.
-The Schema ID should be commited to CVS. This makes a connection between code and data. Techically generated data loading code can be excluded from CVS simply because having Schema ID allows you to regenerate exactly the same data loading code.
+The Schema ID should be commited to VCS. This makes a connection between code and data. Techically generated data loading code can be excluded from VCS simply because having Schema ID allows you to regenerate exactly the same data loading code.
