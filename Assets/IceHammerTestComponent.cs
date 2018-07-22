@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using IceHammer;
 
 
 public class IceHammerTestComponent : MonoBehaviour {
@@ -9,22 +10,42 @@ public class IceHammerTestComponent : MonoBehaviour {
 	public static readonly string projectID = "G_271bd-mg1ZPrna0XxAS0aT56BxS0tA";
 
 
+    public string[] sheets;
+
+
 	void Start() {
-        StartCoroutine(GetSheets());
+        StartCoroutine(GetProject());
     }
  
-    IEnumerator GetSheets() {
-        UnityWebRequest www = UnityWebRequest.Get("https://app.icehammer.org/api/project/" + projectID);
+    IEnumerator GetProject() {
+        UnityWebRequest www = RequestBuilder.GetProject(projectID);
         yield return www.SendWebRequest();
 
         if(www.isNetworkError || www.isHttpError) {
             Debug.Log(www.error);
         }
         else {
-        	IceHammer.Project project = JsonUtility.FromJson<IceHammer.Project>(www.downloadHandler.text);
+        	Project project = ResponseParser.ParseProject(www);
+            sheets = project.sheets;
+
             Debug.Log(project.id);
             Debug.Log(project.name);
             Debug.Log(project.sheets);
+
+            yield return GetSheets(project);
+        }
+    }
+
+    IEnumerator GetSheets(Project project) {
+        UnityWebRequest www = RequestBuilder.GetSheet(project.sheets[0]);
+        yield return www.SendWebRequest();
+
+        if(www.isNetworkError || www.isHttpError) {
+            Debug.Log(www.error);
+        }
+        else {
+            Sheet sheet = ResponseParser.ParseSheet(www);
+            Debug.Log("sheet: " + sheet.name + ", " + sheet.id + ", " + sheet.latestSchema);
         }
     }
 	
